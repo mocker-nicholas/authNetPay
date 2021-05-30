@@ -1,0 +1,158 @@
+:root {
+  --primary-color: #14213d;
+  --secondary-color: #e5e5e5;
+  --teriary-color: #fca311;
+}
+
+*{
+  margin: 0px;
+}
+
+input::placeholder {
+  font-size: 1.5rem;
+}
+
+input:focus{
+  outline-color: var(--teriary-color);
+  border-color: var(--teriary-color);
+}
+
+/* Hide arrows on input elements */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--teriary-color);
+}
+
+/* Intro */
+.outer-div {
+  background-color: var(--primary-color);
+  margin: 1em auto;
+  padding: 5px;
+  width: 90%;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-div{
+  letter-spacing: 3px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+/* Billing Info */
+.billing-info {
+  background-color: var(--secondary-color);
+  margin: 1rem auto;
+  font-size: 2rem;
+  max-width: 900px;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;}
+
+.billing-info input {
+  font-size: 2rem;
+  margin: 5px 0;
+}
+
+.billing-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.billing-labels label {
+  margin: 0.5rem 0;
+}
+
+.billing-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+select{
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+select:focus{
+  outline-color: var(--teriary-color);
+}
+
+/* Payment Info */
+.payment-info {
+  background-color: var(--secondary-color);
+  margin: 1rem auto;
+  font-size: 2rem;
+  max-width: 900px;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.payment-info input {
+  font-size: 2rem;
+   margin: 5px 0;
+}
+
+.payment-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.payment-labels label {
+  margin: 0.5rem 0;
+}
+
+.payment-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Submission Keys */
+.keys {
+  align-self: flex-end;
+}
+.keys input, .keys label {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.keys, input::placeholder {
+  font-size: 1rem;
+}
+
+/* Button */
+.submit {
+  background-color: #e5e5e5;
+  padding: 1rem 2.5rem;
+  border: 2px solid var(--primary-color);
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  align-self: flex-end;
+  transition: all 300ms ease-in-out;
+}
+
+.submit:hover {
+  outline-color: var(--teriary-color);
+  border-color: var(--teriary-color);
+  color: var(--teriary-color);
+}
+
+.submit:active {
+  transform: scale(0.9);
+}
+
