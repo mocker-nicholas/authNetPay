@@ -1,0 +1,1 @@
+(()=>{button=document.querySelector(".submit"),button.addEventListener("click",(function(e){t(transData)}));var t=function(t){fetch("https://apitest.authorize.net/xml/v1/request.api",{method:"POST",body:JSON.stringify(t)})}})();
