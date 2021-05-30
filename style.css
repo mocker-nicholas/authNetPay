@@ -156,3 +156,51 @@ select:focus{
   transform: scale(0.9);
 }
 
+/* Response */
+@media(max-width: 680px){
+  .billing-info,
+  .payment-info{
+    font-size: 1.5rem;
+  }
+  .billing-info input,
+  .payment-info input{
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-width: 510px){
+  .intro-div {
+    font-size: 0.8rem;
+  }
+  .billing-info,
+  .payment-info{
+    font-size: 1.2rem;
+  }
+  .billing-info input,
+  .payment-info input{
+    font-size: 1.2rem;
+  }
+}
+
+@media(max-width: 430px){
+  .billing-info,
+  .payment-info{
+    font-size: 1rem;
+  }
+  .billing-info input,
+  .payment-info input{
+    font-size: 1rem;
+  }
+}
+
+@media(max-width: 350px){
+  .billing-info,
+  .payment-info{
+    font-size: 0.8rem;
+  }
+  .billing-info input,
+  .payment-info input{
+    font-size: 0.8rem;
+  }
+}
+
