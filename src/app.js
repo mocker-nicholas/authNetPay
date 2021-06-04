@@ -59,7 +59,25 @@ const validateFields = () => {
   } else if (!/^[1-9]*$/g.test(zipCode.value)){
     messages.push('Zip Code must only contain numbers')
   }
+  // Amount
+  if(amount.value === ""){
+    messages.push('Please select a state')
+  }
+  // Card Number
+  if(amount.value === ""){
+    messages.push('Please enter card number')
+  }
+  // Exp Date
+  if(expDate.value === ""){
+    messages.push('Please enter Exp. Date')
+  }
+  // Cvv
+  if(cvv.value === ""){
+    messages.push('Please enter card CVV')
+  }
+
   console.log(messages);
+
 }
 
 // Submit Transaction to Auth.net
