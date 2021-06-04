@@ -43,27 +43,23 @@ const validateFields = () => {
   if(address.value === ""){
     messages.push('Please enter a billing address')
   }
-
   // City
   if(city.value === ""){
     messages.push('Please enter a city')
   } else if (!/^[a-zA-Z]*$/g.test(city.value)){
     messages.push('City can only contain letters')
   }
-
   // State
   if(state.value === ""){
     messages.push('Please select a state')
   }
-
   // Zip
   if(zipCode.value === ""){
     messages.push('Please enter a Zip Code')
+  } else if (!/^[1-9]*$/g.test(zipCode.value)){
+    messages.push('Zip Code must only contain numbers')
   }
-  
   console.log(messages);
-
-
 }
 
 // Submit Transaction to Auth.net
