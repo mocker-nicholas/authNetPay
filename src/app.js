@@ -26,28 +26,63 @@ button.addEventListener('click', (e) => {
 
 // Check Field Values for the user
 const validateFields = () => {
-  const messages = []
   // First Name
   if(firstName.value === ""){
-    messages.push('Please enter cardholder first name. Names can only contain letters')
+    const message = 'Please enter cardholder first name';
+    const inputDiv = document.querySelector('.input-container-first');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
   } else if (!/^[a-zA-Z]*$/g.test(firstName.value)){
-    messages.push('Names can only contain letters')
+    const message = 'Names can only contain letters';
+    const inputDiv = document.querySelector('.input-container-first');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
   } 
   // Last Name
   if(lastName.value === ""){
-    messages.push('Please enter a cardholder last name. Names can only contain letters')
+    const message = 'Please enter a cardholder last name'
+    const inputDiv = document.querySelector('.input-container-last');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+
+    inputDiv.appendChild(errorMessageEl);
   } else if (!/^[a-zA-Z]*$/g.test(firstName.value)){
-    messages.push('Names can only contain letters')
+    const message = 'Names can only contain letters'
+    const inputDiv = document.querySelector('.input-container-last');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
   }
   // Billing Address
   if(address.value === ""){
-    messages.push('Please enter a billing address')
+    const message = 'Please enter a billing address'
+    const inputDiv = document.querySelector('.input-container-address');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
   }
   // City
   if(city.value === ""){
-    messages.push('Please enter a city')
+    const message = 'Please enter a city'
+    const inputDiv = document.querySelector('.input-container-city');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
   } else if (!/^[a-zA-Z]*$/g.test(city.value)){
-    messages.push('City can only contain letters')
+    const message = 'City can only contain letters'
+    const inputDiv = document.querySelector('.input-container-city');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
   }
   // State
   if(state.value === ""){
@@ -55,28 +90,38 @@ const validateFields = () => {
   }
   // Zip
   if(zipCode.value === ""){
-    messages.push('Please enter a Zip Code')
+    const message = 'Please enter a zip code'
+    const inputDiv = document.querySelector('.input-container-zipcode');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
   } else if (!/^[1-9]*$/g.test(zipCode.value)){
-    messages.push('Zip Code must only contain numbers')
+    const message = 'Zip code must only contain numbers'
+    const inputDiv = document.querySelector('.input-container-zipcode');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
   }
   // Amount
   if(amount.value === ""){
-    messages.push('Please select a state')
+    // messages.push('Please select a state')
   }
   // Card Number
   if(amount.value === ""){
-    messages.push('Please enter card number')
+    // messages.push('Please enter card number')
   }
   // Exp Date
   if(expDate.value === ""){
-    messages.push('Please enter Exp. Date')
+    // messages.push('Please enter Exp. Date')
   }
   // Cvv
   if(cvv.value === ""){
-    messages.push('Please enter card CVV')
+    // messages.push('Please enter card CVV')
   }
 
-  console.log(messages);
+  // console.log(messages);
 
 }
 
