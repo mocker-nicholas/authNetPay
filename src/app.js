@@ -22,13 +22,14 @@ const transKey = document.querySelector('#transKey');
 button.addEventListener('click', (e) => {
   validateFields();
   // runTrans();
+  // clearError();
 })
 
 // Check Field Values for the user
 const validateFields = () => {
   // First Name
   if(firstName.value === ""){
-    const message = 'Please enter cardholder first name';
+    const message = 'Enter cardholder first name';
     const inputDiv = document.querySelector('.input-container-first');
     const errorMessageEl = document.createElement('p')
     errorMessageEl.className = 'error'
@@ -44,7 +45,7 @@ const validateFields = () => {
   } 
   // Last Name
   if(lastName.value === ""){
-    const message = 'Please enter a cardholder last name'
+    const message = 'Enter a cardholder last name'
     const inputDiv = document.querySelector('.input-container-last');
     const errorMessageEl = document.createElement('p')
     errorMessageEl.className = 'error'
@@ -104,25 +105,51 @@ const validateFields = () => {
     errorMessageEl.appendChild(document.createTextNode(message))
     inputDiv.appendChild(errorMessageEl);
   }
+  // Invoice Number
+  if(invNumber.value === ""){
+    const message = 'Please enter an Invoice #'
+    const inputDiv = document.querySelector('.input-container-refId');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
+  }
   // Amount
   if(amount.value === ""){
-    // messages.push('Please select a state')
+    const message = 'Enter an amount'
+    const inputDiv = document.querySelector('.input-container-amount');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
   }
   // Card Number
   if(amount.value === ""){
-    // messages.push('Please enter card number')
+    const message = 'Enter credit card number'
+    const inputDiv = document.querySelector('.input-container-cardNumber');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
   }
   // Exp Date
   if(expDate.value === ""){
-    // messages.push('Please enter Exp. Date')
+    const message = 'Enter Exp. Date'
+    const inputDiv = document.querySelector('.input-container-expDate');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
   }
   // Cvv
   if(cvv.value === ""){
-    // messages.push('Please enter card CVV')
+    const message = 'Enter card security code'
+    const inputDiv = document.querySelector('.input-container-cvv');
+    const errorMessageEl = document.createElement('p')
+    errorMessageEl.className = 'error'
+    errorMessageEl.appendChild(document.createTextNode(message))
+    inputDiv.appendChild(errorMessageEl);
   }
-
-  // console.log(messages);
-
 }
 
 // Submit Transaction to Auth.net
