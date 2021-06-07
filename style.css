@@ -75,7 +75,7 @@ body {
 }
 
 .billing-labels label {
-  margin: 0.6rem 0;
+  margin: 0.5rem 0;
 }
 
 .billing-inputs {
@@ -121,7 +121,7 @@ select:focus {
 }
 
 .payment-labels label {
-  margin: 0.6rem 0;
+  margin: 0.5rem 0;
 }
 
 .payment-inputs {
