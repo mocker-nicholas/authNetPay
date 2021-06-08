@@ -29,8 +29,8 @@
         <!-- Billing Info -->
         <section>
           <div class="billing">
-            <div class="flex-group">
-              <div class="flex-item">
+            <div class="flex-group even">
+              <div class="flex-item" id="first-item">
                 <label for="first">First Name</label>
                 <input
                   type="text"
@@ -39,7 +39,7 @@
                   placeholder="First name"
                 />
               </div>
-              <div class="flex-item">
+              <div class="flex-item" id="last-item">
                 <label for="last">Last Name</label>
                 <input
                   type="text"
@@ -49,8 +49,8 @@
                 />
               </div>
             </div>
-            <div class="flex-group">
-              <div class="flex-item">
+            <div class="flex-group even">
+              <div class="flex-item" id="company-item">
                 <label for="company">Company</label>
                 <input
                   type="text"
@@ -59,7 +59,7 @@
                   placeholder="Company name"
                 />
               </div>
-              <div class="flex-item">
+              <div class="flex-item" id="address-item">
                 <label for="address">Address</label>
                 <input
                   type="text"
@@ -69,12 +69,12 @@
                 />
               </div>
             </div>
-            <div class="flex-group">
-              <div class="flex-item">
+            <div class="flex-group odd">
+              <div class="flex-item" id="city-item">
                 <label for="city">City</label>
                 <input type="text" name="city" id="city" placeholder="City" />
               </div>
-              <div class="flex-item">
+              <div class="flex-item" id="state-item">
                 <label for="state">State</label>
                 <select name="state" id="state">
                   <option value="AL">Alabama</option>
@@ -130,7 +130,7 @@
                   <option value="WY">Wyoming</option>
                 </select>
               </div>
-              <div class="flex-item">
+              <div class="flex-item" id="zipcode-item">
                 <label for="zipcode">Zip Code</label>
                 <input
                   type="number"
@@ -144,8 +144,8 @@
 
           <!-- Payment Info -->
           <div class="payment">
-            <div class="flex-group">
-              <div class="flex-item">
+            <div class="flex-group even">
+              <div class="flex-item" id="amount-item">
                 <label for="amount">Amount</label>
                 <input
                   type="number"
@@ -154,7 +154,7 @@
                   placeholder="Payment amount"
                 />
               </div>
-              <div class="flex-item">
+              <div class="flex-item" id="refId-item">
                 <label for="refId">Inv. Number</label>
                 <input
                   type="text"
@@ -164,8 +164,8 @@
                 />
               </div>
             </div>
-            <div class="flex-group">
-              <div class="flex-item">
+            <div class="flex-group odd">
+              <div class="flex-item" id="cardNumber-item">
                 <label for="cardNumber">Card Number</label>
                 <input
                   type="number"
@@ -175,7 +175,7 @@
                   maxlength="16"
                 />
               </div>
-              <div class="flex-item">
+              <div class="flex-item" id="expDate-item">
                 <label for="expdate">Exp. Date</label>
                 <input
                   type="number"
@@ -184,7 +184,7 @@
                   placeholder="Exp. date"
                 />
               </div>
-              <div class="flex-item">
+              <div class="flex-item" id="cvv-item">
                 <label for="cvv">Cvv</label>
                 <input type="number" name="cvv" id="cvv" placeholder="Cvv" />
               </div>

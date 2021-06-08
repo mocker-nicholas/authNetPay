@@ -29,127 +29,65 @@ button.addEventListener('click', (e) => {
 const validateFields = () => {
   // First Name
   if(firstName.value === ""){
-    const message = 'Enter cardholder first name';
-    const inputDiv = document.querySelector('.input-container-first');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#first-item', 'Enter a first name')
   } else if (!/^[a-zA-Z]*$/g.test(firstName.value)){
-    const message = 'Names can only contain letters';
-    const inputDiv = document.querySelector('.input-container-first');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#first-item', 'Names can only contain letters')
   } 
   // Last Name
   if(lastName.value === ""){
-    const message = 'Enter a cardholder last name'
-    const inputDiv = document.querySelector('.input-container-last');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-
-    inputDiv.appendChild(errorMessageEl);
+    showError('#last-item', 'Enter a last name')
   } else if (!/^[a-zA-Z]*$/g.test(firstName.value)){
-    const message = 'Names can only contain letters'
-    const inputDiv = document.querySelector('.input-container-last');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#last-item', 'Names can only contain letters')
   }
   // Billing Address
   if(address.value === ""){
-    const message = 'Please enter a billing address'
-    const inputDiv = document.querySelector('.input-container-address');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#address-item', 'Enter a biling address')
   }
   // City
   if(city.value === ""){
-    const message = 'Please enter a city'
-    const inputDiv = document.querySelector('.input-container-city');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#city-item', 'Enter a city')
   } else if (!/^[a-zA-Z]*$/g.test(city.value)){
-    const message = 'City can only contain letters'
-    const inputDiv = document.querySelector('.input-container-city');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#city-item', 'City can only contain letters')
   }
   // State
   if(state.value === ""){
-    messages.push('Please select a state')
+    showError('#state-item', 'Select a state')
   }
   // Zip
   if(zipCode.value === ""){
-    const message = 'Please enter a zip code'
-    const inputDiv = document.querySelector('.input-container-zipcode');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#zipcode-item', 'Enter a zipcode')
   } else if (!/^[1-9]*$/g.test(zipCode.value)){
-    const message = 'Zip code must only contain numbers'
-    const inputDiv = document.querySelector('.input-container-zipcode');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#zipcode-item', 'Zipcode can only contain numbers')
   }
   // Invoice Number
   if(invNumber.value === ""){
-    const message = 'Please enter an Invoice #'
-    const inputDiv = document.querySelector('.input-container-refId');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#refId-item', 'Enter an Invoice number')
   }
   // Amount
   if(amount.value === ""){
-    const message = 'Enter an amount'
-    const inputDiv = document.querySelector('.input-container-amount');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#amount-item', 'Enter an amount')
   }
   // Card Number
   if(amount.value === ""){
-    const message = 'Enter credit card number'
-    const inputDiv = document.querySelector('.input-container-cardNumber');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#cardNumber-item', 'Enter card number')
   }
   // Exp Date
   if(expDate.value === ""){
-    const message = 'Enter Exp. Date'
-    const inputDiv = document.querySelector('.input-container-expDate');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#expDate-item', 'Enter card exp. date')
   }
   // Cvv
   if(cvv.value === ""){
-    const message = 'Enter card security code'
-    const inputDiv = document.querySelector('.input-container-cvv');
-    const errorMessageEl = document.createElement('p')
-    errorMessageEl.className = 'error'
-    errorMessageEl.appendChild(document.createTextNode(message))
-    inputDiv.appendChild(errorMessageEl);
+    showError('#cvv-item', 'Enter card cvv')
   }
+}
+
+// Validation Helper Function
+const showError = (flexItemId, errorMessage) => {
+  const inputDiv = document.querySelector(flexItemId);
+  const errorMessageEl = document.createElement('p')
+  errorMessageEl.className = 'error'
+  errorMessageEl.appendChild(document.createTextNode(errorMessage))
+  inputDiv.appendChild(errorMessageEl);
 }
 
 // Submit Transaction to Auth.net
