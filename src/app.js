@@ -9,7 +9,7 @@ const zipCode = document.querySelector("#zipcode");
 
 // Payment Info
 const amount = document.querySelector("#amount");
-const invNumber = document.querySelector("#refId");
+const invNumber = document.querySelector("#poNumber");
 const cardNumber = document.querySelector("#cardNumber");
 const expDate = document.querySelector("#expDate");
 const cvv = document.querySelector("#cvv");
@@ -24,7 +24,7 @@ const button = document.querySelector(".submit");
 button.addEventListener("click", (e) => {
   clearError();
   validateFields();
-  // runTrans();
+  runTrans();
 });
 
 // Check Field Values for the user
@@ -63,7 +63,7 @@ const validateFields = () => {
   }
   // Invoice Number
   if (invNumber.value === "") {
-    showError("#refId-item", "Enter an Invoice number");
+    showError("#poNumber-item", "Enter an invoice number");
   }
   // Amount
   if (amount.value === "") {
@@ -94,11 +94,11 @@ const showError = (flexItemId, errorMessage) => {
 
 // Clear errors after submit
 const clearError = () => {
-  const errorEl = document.querySelectorAll('.error');
-  if(errorEl !== []){
-    errorEl.forEach(error => error.remove());
+  const errorEl = document.querySelectorAll(".error");
+  if (errorEl !== []) {
+    errorEl.forEach((error) => error.remove());
   }
-}
+};
 
 // Submit Transaction to Auth.net
 const runTrans = () => {
@@ -108,7 +108,6 @@ const runTrans = () => {
         name: authKey.value,
         transactionKey: transKey.value,
       },
-      refId: invNumber.value,
       transactionRequest: {
         transactionType: "authCaptureTransaction",
         amount: amount.value,
@@ -119,6 +118,7 @@ const runTrans = () => {
             cardCode: cvv.value,
           },
         },
+        poNumber: poNumber.value,
         billTo: {
           firstName: firstName.value,
           lastName: lastName.value,

@@ -77,6 +77,9 @@
               <div class="flex-item" id="state-item">
                 <label for="state">State</label>
                 <select name="state" id="state">
+                  <option disabled selected value>
+                    -- select your state --
+                  </option>
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
                   <option value="AZ">Arizona</option>
@@ -154,12 +157,12 @@
                   placeholder="Payment amount"
                 />
               </div>
-              <div class="flex-item" id="refId-item">
-                <label for="refId">Inv. Number</label>
+              <div class="flex-item" id="poNumber-item">
+                <label for="poNumber">Inv. Number</label>
                 <input
                   type="text"
-                  name="refId"
-                  id="refId"
+                  name="poNumber"
+                  id="poNumber"
                   placeholder="Located on invoice"
                 />
               </div>
