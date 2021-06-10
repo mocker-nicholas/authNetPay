@@ -132,7 +132,17 @@ select:active {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: 950px;
+  max-width: 930px;
+}
+
+.submit:hover {
+  outline-color: var(--teriary-color);
+  border-color: var(--teriary-color);
+  color: var(--teriary-color);
+}
+
+.submit:active {
+  transform: scale(0.9);
 }
 
 /* Submission Keys */
@@ -148,16 +158,6 @@ select:active {
 .keys,
 input::placeholder {
   font-size: 1rem;
-}
-
-.submit:hover {
-  outline-color: var(--teriary-color);
-  border-color: var(--teriary-color);
-  color: var(--teriary-color);
-}
-
-.submit:active {
-  transform: scale(0.9);
 }
 
 /* Error */
@@ -176,18 +176,28 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 85%;
   }
 
   .flex-group.even {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 85%;
   }
 
   .flex-item {
     margin: 0.5rem;
     padding-bottom: 0.3rem;
     border-bottom: 1px solid #fca311;
+  }
+
+  .billing {
+    max-width: 600px;
+  }
+
+  .payment {
+    max-width: 600px;
   }
 
   .billing input {

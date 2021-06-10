@@ -1,5 +1,4 @@
 // Personal Info
-const button = document.querySelector(".submit");
 const firstName = document.querySelector("#first");
 const lastName = document.querySelector("#last");
 const company = document.querySelector("#company");
@@ -19,10 +18,13 @@ const cvv = document.querySelector("#cvv");
 const authKey = document.querySelector("#authKey");
 const transKey = document.querySelector("#transKey");
 
+// Button
+const button = document.querySelector(".submit");
+
 button.addEventListener("click", (e) => {
+  clearError();
   validateFields();
   // runTrans();
-  // clearError();
 });
 
 // Check Field Values for the user
@@ -89,6 +91,14 @@ const showError = (flexItemId, errorMessage) => {
   errorMessageEl.appendChild(document.createTextNode(errorMessage));
   inputDiv.appendChild(errorMessageEl);
 };
+
+// Clear errors after submit
+const clearError = () => {
+  const errorEl = document.querySelectorAll('.error');
+  if(errorEl !== []){
+    errorEl.forEach(error => error.remove());
+  }
+}
 
 // Submit Transaction to Auth.net
 const runTrans = () => {
