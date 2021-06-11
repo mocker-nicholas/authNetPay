@@ -14,6 +14,7 @@
 
   <body>
     <main>
+      <div class="display-card"></div>
       <div class="outer-div">
         <!-- Intro Message -->
         <section>
@@ -171,11 +172,14 @@
               <div class="flex-item" id="cardNumber-item">
                 <label for="cardNumber">Card Number</label>
                 <input
-                  type="number"
                   name="cardNumber"
                   id="cardNumber"
-                  placeholder="Card Number"
-                  maxlength="16"
+                  type="tel"
+                  inputmode="numeric"
+                  pattern="[0-9\s]{13,19}"
+                  autocomplete="cc-number"
+                  maxlength="19"
+                  placeholder="xxxx xxxx xxxx xxxx"
                 />
               </div>
               <div class="flex-item" id="expDate-item">

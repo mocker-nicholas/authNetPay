@@ -24,62 +24,79 @@ const button = document.querySelector(".submit");
 button.addEventListener("click", (e) => {
   clearError();
   validateFields();
-  runTrans();
+  submissionCheck(messages);
 });
 
 // Check Field Values for the user
+let messages = [];
+// Add an error item to an array for every error present
 const validateFields = () => {
   // First Name
   if (firstName.value === "") {
     showError("#first-item", "Enter a first name");
+    messages.push("error");
   } else if (!/^[a-zA-Z]*$/g.test(firstName.value)) {
     showError("#first-item", "Names can only contain letters");
+    messages.push("error");
   }
   // Last Name
   if (lastName.value === "") {
     showError("#last-item", "Enter a last name");
+    messages.push("error");
   } else if (!/^[a-zA-Z]*$/g.test(firstName.value)) {
     showError("#last-item", "Names can only contain letters");
+    messages.push("error");
   }
   // Billing Address
   if (address.value === "") {
     showError("#address-item", "Enter a biling address");
+    messages.push("error");
   }
   // City
   if (city.value === "") {
     showError("#city-item", "Enter a city");
+    messages.push("error");
   } else if (!/^[a-zA-Z]*$/g.test(city.value)) {
     showError("#city-item", "City can only contain letters");
+    messages.push("error");
   }
   // State
   if (state.value === "") {
     showError("#state-item", "Select a state");
+    messages.push("error");
   }
   // Zip
   if (zipCode.value === "") {
     showError("#zipcode-item", "Enter a zipcode");
+    messages.push("error");
   } else if (!/^[1-9]*$/g.test(zipCode.value)) {
     showError("#zipcode-item", "Zipcode can only contain numbers");
+    messages.push("error");
   }
   // Invoice Number
   if (invNumber.value === "") {
     showError("#poNumber-item", "Enter an invoice number");
+    messages.push("error");
   }
   // Amount
   if (amount.value === "") {
     showError("#amount-item", "Enter an amount");
+    messages.push("error");
   }
   // Card Number
   if (amount.value === "") {
     showError("#cardNumber-item", "Enter card number");
+    messages.push("error");
   }
   // Exp Date
   if (expDate.value === "") {
     showError("#expDate-item", "Enter card exp. date");
+    messages.push("error");
   }
   // Cvv
   if (cvv.value === "") {
     showError("#cvv-item", "Enter card cvv");
+    messages.push("error");
   }
 };
 
@@ -97,6 +114,25 @@ const clearError = () => {
   const errorEl = document.querySelectorAll(".error");
   if (errorEl !== []) {
     errorEl.forEach((error) => error.remove());
+  }
+  // If there are error messages, clear them before validation runs on next submission
+  if (messages !== []) {
+    messages = [];
+  }
+};
+
+// Check for errors then submit
+const submissionCheck = (messages) => {
+  let errorPresent;
+  if (messages.length === 0) {
+    errorPresent = true;
+  } else {
+    errorPresent = false;
+  }
+
+  // If there are no error messages in the array after the validation run the transaction.
+  if (errorPresent === true) {
+    runTrans();
   }
 };
 
@@ -137,5 +173,5 @@ const runTrans = () => {
     body: JSON.stringify(transData),
   })
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => console.log(data.messages));
 };
