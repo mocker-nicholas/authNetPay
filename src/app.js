@@ -18,13 +18,15 @@ const cvv = document.querySelector("#cvv");
 const authKey = document.querySelector("#authKey");
 const transKey = document.querySelector("#transKey");
 
-// Button
+// General
+const body = document.querySelector("body");
 const button = document.querySelector(".submit");
 
 button.addEventListener("click", (e) => {
   clearError();
   validateFields();
   submissionCheck(messages);
+  // Change payment body html to display whether or not transaction was successful
 });
 
 // Check Field Values for the user
@@ -56,7 +58,7 @@ const validateFields = () => {
   if (city.value === "") {
     showError("#city-item", "Enter a city");
     messages.push("error");
-  } else if (!/^[a-zA-Z]*$/g.test(city.value)) {
+  } else if (!/^[a-zA-Z, ]*$/g.test(city.value)) {
     showError("#city-item", "City can only contain letters");
     messages.push("error");
   }
@@ -76,6 +78,9 @@ const validateFields = () => {
   // Invoice Number
   if (invNumber.value === "") {
     showError("#poNumber-item", "Enter an invoice number");
+    messages.push("error");
+  } else if (!/^[1-9]*$/g.test(invNumber.value)) {
+    showError("#poNumber-item", "Po Number can only contain numbers");
     messages.push("error");
   }
   // Amount
