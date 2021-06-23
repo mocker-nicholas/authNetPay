@@ -1,38 +1,31 @@
-import validate from './validate.js'
-
-// Personal Info
-const firstName = document.querySelector("#first");
-const lastName = document.querySelector("#last");
-const company = document.querySelector("#company");
-const address = document.querySelector("#address");
-const city = document.querySelector("#city");
-const state = document.querySelector("#state");
-const zipCode = document.querySelector("#zipcode");
-
-// Payment Info
-const amount = document.querySelector("#amount");
-const invNumber = document.querySelector("#poNumber");
-const cardNumber = document.querySelector("#cardNumber");
-const expDate = document.querySelector("#expDate");
-const cvv = document.querySelector("#cvv");
-
-// Keys
-const authKey = document.querySelector("#authKey");
-const transKey = document.querySelector("#transKey");
+import transVariables from "./body.js";
+import validate from "./validate.js";
 
 // General
 const button = document.querySelector(".submit");
 
 button.addEventListener("click", (e) => {
   clearError();
-  validateFields();
+  validateFields(transVariables);
   submissionCheck(messages);
 });
 
 // Check Field Values for the user
 let messages = [];
 // Add an error item to an array for every error present
-const validateFields = () => {
+const validateFields = ({
+  firstName,
+  lastName,
+  address,
+  city,
+  state,
+  zipCode,
+  amount,
+  invNumber,
+  cardNumber,
+  expDate,
+  cvv,
+}) => {
   // First Name
   if (firstName.value === "") {
     validate.showError("#first-item", "Enter a first name");
@@ -89,8 +82,14 @@ const validateFields = () => {
     messages.push("error");
   }
   // Card Number
-  if (amount.value === "") {
+  if (cardNumber.value === "") {
     validate.showError("#cardNumber-item", "Enter card number");
+    messages.push("error");
+  } else if (!/^[1-9]*$/g.test(cardNumber.value)) {
+    validate.showError(
+      "#cardNumber-item",
+      "Card number can only contain numbers"
+    );
     messages.push("error");
   }
   // Exp Date
@@ -128,11 +127,26 @@ const submissionCheck = (messages) => {
 
   // If there are no error messages in the array after the validation run the transaction.
   if (errorPresent === true) {
-    runTrans();
+    runTrans(transVariables);
   }
 };
 
-const runTrans = () => {
+const runTrans = ({
+  firstName,
+  lastName,
+  company,
+  address,
+  city,
+  state,
+  zipCode,
+  amount,
+  invNumber,
+  cardNumber,
+  expDate,
+  cvv,
+  authKey,
+  transKey,
+}) => {
   const transData = {
     createTransactionRequest: {
       merchantAuthentication: {
