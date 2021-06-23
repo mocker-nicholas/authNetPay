@@ -3,6 +3,7 @@ import validate from "./validate.js";
 
 // General
 const button = document.querySelector(".submit");
+const backButton = document.querySelector(".go-back");
 
 button.addEventListener("click", (e) => {
   clearError();
@@ -131,6 +132,24 @@ const submissionCheck = (messages) => {
   }
 };
 
+// Display the result of the transaction to the user
+const displayResult = (data) => {
+  const resultCode = data.messages.resultCode;
+  const responseText = data.messages.message[0].text;
+  const msgContainer = document.querySelector(".billing");
+  const payContainer = document.querySelector(".payment");
+  const button = document.querySelector("button");
+  payContainer.classList = "hide";
+  button.classList = "hide";
+  msgContainer.innerHTML = `
+  <p class="py-bottom"> Transaction Result: ${resultCode}</p> 
+  <p class="py-bottom"> Message: ${responseText}</p>
+  <button class="go-back" onClick="window.location.reload();">Go Back</button>
+`;
+
+  console.log(data);
+};
+
 const runTrans = ({
   firstName,
   lastName,
@@ -182,5 +201,7 @@ const runTrans = ({
     body: JSON.stringify(transData),
   })
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => {
+      displayResult(data);
+    });
 };
