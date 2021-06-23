@@ -1,3 +1,5 @@
+import validate from './validate.js'
+
 // Personal Info
 const firstName = document.querySelector("#first");
 const lastName = document.querySelector("#last");
@@ -19,14 +21,12 @@ const authKey = document.querySelector("#authKey");
 const transKey = document.querySelector("#transKey");
 
 // General
-const body = document.querySelector("body");
 const button = document.querySelector(".submit");
 
 button.addEventListener("click", (e) => {
   clearError();
   validateFields();
   submissionCheck(messages);
-  // Change payment body html to display whether or not transaction was successful
 });
 
 // Check Field Values for the user
@@ -35,41 +35,41 @@ let messages = [];
 const validateFields = () => {
   // First Name
   if (firstName.value === "") {
-    showError("#first-item", "Enter a first name");
+    validate.showError("#first-item", "Enter a first name");
     messages.push("error");
   } else if (!/^[a-zA-Z]*$/g.test(firstName.value)) {
-    showError("#first-item", "Names can only contain letters");
+    validate.showError("#first-item", "Names can only contain letters");
     messages.push("error");
   }
   // Last Name
   if (lastName.value === "") {
-    showError("#last-item", "Enter a last name");
+    validate.showError("#last-item", "Enter a last name");
     messages.push("error");
   } else if (!/^[a-zA-Z]*$/g.test(firstName.value)) {
-    showError("#last-item", "Names can only contain letters");
+    validate.showError("#last-item", "Names can only contain letters");
     messages.push("error");
   }
   // Billing Address
   if (address.value === "") {
-    showError("#address-item", "Enter a biling address");
+    validate.showError("#address-item", "Enter a biling address");
     messages.push("error");
   }
   // City
   if (city.value === "") {
-    showError("#city-item", "Enter a city");
+    validate.showError("#city-item", "Enter a city");
     messages.push("error");
   } else if (!/^[a-zA-Z, ]*$/g.test(city.value)) {
-    showError("#city-item", "City can only contain letters");
+    validate.showError("#city-item", "City can only contain letters");
     messages.push("error");
   }
   // State
   if (state.value === "") {
-    showError("#state-item", "Select a state");
+    validate.showError("#state-item", "Select a state");
     messages.push("error");
   }
   // Zip
   if (zipCode.value === "") {
-    showError("#zipcode-item", "Enter a zipcode");
+    validate.showError("#zipcode-item", "Enter a zipcode");
     messages.push("error");
   } else if (!/^[1-9]*$/g.test(zipCode.value)) {
     showError("#zipcode-item", "Zipcode can only contain numbers");
@@ -77,41 +77,32 @@ const validateFields = () => {
   }
   // Invoice Number
   if (invNumber.value === "") {
-    showError("#poNumber-item", "Enter an invoice number");
+    validate.showError("#poNumber-item", "Enter an invoice number");
     messages.push("error");
   } else if (!/^[1-9]*$/g.test(invNumber.value)) {
-    showError("#poNumber-item", "Po Number can only contain numbers");
+    validate.showError("#poNumber-item", "Po Number can only contain numbers");
     messages.push("error");
   }
   // Amount
   if (amount.value === "") {
-    showError("#amount-item", "Enter an amount");
+    validate.showError("#amount-item", "Enter an amount");
     messages.push("error");
   }
   // Card Number
   if (amount.value === "") {
-    showError("#cardNumber-item", "Enter card number");
+    validate.showError("#cardNumber-item", "Enter card number");
     messages.push("error");
   }
   // Exp Date
   if (expDate.value === "") {
-    showError("#expDate-item", "Enter card exp. date");
+    validate.showError("#expDate-item", "Enter card exp. date");
     messages.push("error");
   }
   // Cvv
   if (cvv.value === "") {
-    showError("#cvv-item", "Enter card cvv");
+    validate.showError("#cvv-item", "Enter card cvv");
     messages.push("error");
   }
-};
-
-// Validation Helper Function
-const showError = (flexItemId, errorMessage) => {
-  const inputDiv = document.querySelector(flexItemId);
-  const errorMessageEl = document.createElement("p");
-  errorMessageEl.className = "error";
-  errorMessageEl.appendChild(document.createTextNode(errorMessage));
-  inputDiv.appendChild(errorMessageEl);
 };
 
 // Clear errors after submit
@@ -141,7 +132,6 @@ const submissionCheck = (messages) => {
   }
 };
 
-// Submit Transaction to Auth.net
 const runTrans = () => {
   const transData = {
     createTransactionRequest: {
@@ -159,7 +149,7 @@ const runTrans = () => {
             cardCode: cvv.value,
           },
         },
-        poNumber: poNumber.value,
+        poNumber: invNumber.value,
         billTo: {
           firstName: firstName.value,
           lastName: lastName.value,
@@ -178,5 +168,5 @@ const runTrans = () => {
     body: JSON.stringify(transData),
   })
     .then((response) => response.json())
-    .then((data) => console.log(data.messages));
+    .then((data) => console.log(data));
 };

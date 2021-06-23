@@ -1,1 +1,113 @@
-(()=>{var e=document.querySelector("#first"),t=document.querySelector("#last"),r=document.querySelector("#company"),a=document.querySelector("#address"),u=document.querySelector("#city"),n=document.querySelector("#state"),o=document.querySelector("#zipcode"),c=document.querySelector("#amount"),l=document.querySelector("#poNumber"),i=document.querySelector("#cardNumber"),m=document.querySelector("#expDate"),s=document.querySelector("#cvv"),d=document.querySelector("#authKey"),v=document.querySelector("#transKey");document.querySelector("body"),document.querySelector(".submit").addEventListener("click",(function(e){S(),y(),q(p)}));var p=[],y=function(){""===e.value?(h("#first-item","Enter a first name"),p.push("error")):/^[a-zA-Z]*$/g.test(e.value)||(h("#first-item","Names can only contain letters"),p.push("error")),""===t.value?(h("#last-item","Enter a last name"),p.push("error")):/^[a-zA-Z]*$/g.test(e.value)||(h("#last-item","Names can only contain letters"),p.push("error")),""===a.value&&(h("#address-item","Enter a biling address"),p.push("error")),""===u.value?(h("#city-item","Enter a city"),p.push("error")):/^[a-zA-Z, ]*$/g.test(u.value)||(h("#city-item","City can only contain letters"),p.push("error")),""===n.value&&(h("#state-item","Select a state"),p.push("error")),""===o.value?(h("#zipcode-item","Enter a zipcode"),p.push("error")):/^[1-9]*$/g.test(o.value)||(h("#zipcode-item","Zipcode can only contain numbers"),p.push("error")),""===l.value?(h("#poNumber-item","Enter an invoice number"),p.push("error")):/^[1-9]*$/g.test(l.value)||(h("#poNumber-item","Po Number can only contain numbers"),p.push("error")),""===c.value&&(h("#amount-item","Enter an amount"),p.push("error")),""===c.value&&(h("#cardNumber-item","Enter card number"),p.push("error")),""===m.value&&(h("#expDate-item","Enter card exp. date"),p.push("error")),""===s.value&&(h("#cvv-item","Enter card cvv"),p.push("error"))},h=function(e,t){var r=document.querySelector(e),a=document.createElement("p");a.className="error",a.appendChild(document.createTextNode(t)),r.appendChild(a)},S=function(){var e=document.querySelectorAll(".error");e!==[]&&e.forEach((function(e){return e.remove()})),p!==[]&&(p=[])},q=function(e){!0==(0===e.length)&&b()},b=function(){var l={createTransactionRequest:{merchantAuthentication:{name:d.value,transactionKey:v.value},transactionRequest:{transactionType:"authCaptureTransaction",amount:c.value,payment:{creditCard:{cardNumber:i.value,expirationDate:m.value,cardCode:s.value}},poNumber:poNumber.value,billTo:{firstName:e.value,lastName:t.value,company:r.value,address:a.value,city:u.value,state:n.value,zip:o.value,country:"US"}}}};fetch("https://apitest.authorize.net/xml/v1/request.api",{method:"POST",body:JSON.stringify(l)}).then((function(e){return e.json()})).then((function(e){return console.log(e.messages)}))}})();
+(() => {
+  "use strict";
+  const e = function (e, t) {
+    var r = document.querySelector(e),
+      a = document.createElement("p");
+    (a.className = "error"),
+      a.appendChild(document.createTextNode(t)),
+      r.appendChild(a);
+  };
+  var t = document.querySelector("#first"),
+    r = document.querySelector("#last"),
+    a = document.querySelector("#company"),
+    u = document.querySelector("#address"),
+    n = document.querySelector("#city"),
+    o = document.querySelector("#state"),
+    c = document.querySelector("#zipcode"),
+    l = document.querySelector("#amount"),
+    i = document.querySelector("#poNumber"),
+    s = document.querySelector("#cardNumber"),
+    m = document.querySelector("#expDate"),
+    d = document.querySelector("#cvv"),
+    v = document.querySelector("#authKey"),
+    p = document.querySelector("#transKey");
+  document.querySelector(".submit").addEventListener("click", function (e) {
+    S(), h(), q(y);
+  });
+  var y = [],
+    h = function () {
+      "" === t.value
+        ? (e("#first-item", "Enter a first name"), y.push("error"))
+        : /^[a-zA-Z]*$/g.test(t.value) ||
+          (e("#first-item", "Names can only contain letters"), y.push("error")),
+        "" === r.value
+          ? (e("#last-item", "Enter a last name"), y.push("error"))
+          : /^[a-zA-Z]*$/g.test(t.value) ||
+            (e("#last-item", "Names can only contain letters"),
+            y.push("error")),
+        "" === u.value &&
+          (e("#address-item", "Enter a biling address"), y.push("error")),
+        "" === n.value
+          ? (e("#city-item", "Enter a city"), y.push("error"))
+          : /^[a-zA-Z, ]*$/g.test(n.value) ||
+            (e("#city-item", "City can only contain letters"), y.push("error")),
+        "" === o.value && (e("#state-item", "Select a state"), y.push("error")),
+        "" === c.value
+          ? (e("#zipcode-item", "Enter a zipcode"), y.push("error"))
+          : /^[1-9]*$/g.test(c.value) ||
+            (showError("#zipcode-item", "Zipcode can only contain numbers"),
+            y.push("error")),
+        "" === i.value
+          ? (e("#poNumber-item", "Enter an invoice number"), y.push("error"))
+          : /^[1-9]*$/g.test(i.value) ||
+            (e("#poNumber-item", "Po Number can only contain numbers"),
+            y.push("error")),
+        "" === l.value &&
+          (e("#amount-item", "Enter an amount"), y.push("error")),
+        "" === l.value &&
+          (e("#cardNumber-item", "Enter card number"), y.push("error")),
+        "" === m.value &&
+          (e("#expDate-item", "Enter card exp. date"), y.push("error")),
+        "" === d.value && (e("#cvv-item", "Enter card cvv"), y.push("error"));
+    },
+    S = function () {
+      var e = document.querySelectorAll(".error");
+      e !== [] &&
+        e.forEach(function (e) {
+          return e.remove();
+        }),
+        y !== [] && (y = []);
+    },
+    q = function (e) {
+      !0 == (0 === e.length) && f();
+    },
+    f = function () {
+      var e = {
+        createTransactionRequest: {
+          merchantAuthentication: { name: v.value, transactionKey: p.value },
+          transactionRequest: {
+            transactionType: "authCaptureTransaction",
+            amount: l.value,
+            payment: {
+              creditCard: {
+                cardNumber: s.value,
+                expirationDate: m.value,
+                cardCode: d.value,
+              },
+            },
+            poNumber: i.value,
+            billTo: {
+              firstName: t.value,
+              lastName: r.value,
+              company: a.value,
+              address: u.value,
+              city: n.value,
+              state: o.value,
+              zip: c.value,
+              country: "US",
+            },
+          },
+        },
+      };
+      fetch("https://apitest.authorize.net/xml/v1/request.api", {
+        method: "POST",
+        body: JSON.stringify(e),
+      })
+        .then(function (e) {
+          return e.json();
+        })
+        .then(function (e) {
+          return console.log(e);
+        });
+    };
+})();
