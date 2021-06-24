@@ -73,7 +73,7 @@ const validateFields = ({
   if (invNumber.value === "") {
     validate.showError("#poNumber-item", "Enter an invoice number");
     messages.push("error");
-  } else if (!/^[1-9]*$/g.test(invNumber.value)) {
+  } else if (!/^[0-9]*$/g.test(invNumber.value)) {
     validate.showError("#poNumber-item", "Po Number can only contain numbers");
     messages.push("error");
   }
@@ -86,7 +86,7 @@ const validateFields = ({
   if (cardNumber.value === "") {
     validate.showError("#cardNumber-item", "Enter card number");
     messages.push("error");
-  } else if (!/^[1-9]*$/g.test(cardNumber.value)) {
+  } else if (!/^[0-9]*$/g.test(cardNumber.value)) {
     validate.showError(
       "#cardNumber-item",
       "Card number can only contain numbers"
