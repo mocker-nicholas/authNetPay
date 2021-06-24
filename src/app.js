@@ -163,14 +163,12 @@ const runTrans = ({
   cardNumber,
   expDate,
   cvv,
-  authKey,
-  transKey,
 }) => {
   const transData = {
     createTransactionRequest: {
       merchantAuthentication: {
-        name: authKey.value,
-        transactionKey: transKey.value,
+        name: "5hK5j66VsB",
+        transactionKey: "6u6rHW24cp7j4Mfa",
       },
       transactionRequest: {
         transactionType: "authCaptureTransaction",

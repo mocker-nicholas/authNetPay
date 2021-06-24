@@ -14,10 +14,6 @@ const transVariables = {
   cardNumber: document.querySelector("#cardNumber"),
   expDate: document.querySelector("#expDate"),
   cvv: document.querySelector("#cvv"),
-
-  // Keys
-  authKey: document.querySelector("#authKey"),
-  transKey: document.querySelector("#transKey"),
 };
 
 export default transVariables;

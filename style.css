@@ -24,6 +24,10 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+input::placeholder {
+  font-size: 1rem;
+}
+
 body {
   font-family: "Raleway", sans-serif;
   background-color: var(--secondary-color);
@@ -186,21 +190,6 @@ select:active {
   transform: scale(0.9);
 }
 
-/* Submission Keys */
-.keys {
-  align-self: flex-end;
-}
-.keys input,
-.keys label {
-  font-size: 1rem;
-  margin: 5px 0;
-}
-
-.keys,
-input::placeholder {
-  font-size: 1rem;
-}
-
 /* Error */
 .error {
   color: var(--error-color);
@@ -235,6 +224,7 @@ input::placeholder {
 
   .billing {
     max-width: 600px;
+    margin-bottom: 1rem;
   }
 
   .payment {
