@@ -146,14 +146,14 @@ const displayResult = (data) => {
   if (resultCode === "Error") {
     const errorText = data.transactionResponse.errors[0].errorText;
     msgContainer.innerHTML = `
-    <p class="py-bottom"> Transaction Result: ${resultCode}</p> 
+    <p class="py-bottom"> Transaction Result: ${resultCode}</p>
     <p class="py-bottom"> Message: ${responseText}</p>
     <p class="py-bottom"> Message: ${errorText}</p>
     <button class="go-back" onClick="window.location.reload();">Go Back</button>
   `;
   } else {
     msgContainer.innerHTML = `
-    <p class="py-bottom"> Transaction Result: ${resultCode}</p> 
+    <p class="py-bottom"> Transaction Result: ${resultCode}</p>
     <p class="py-bottom"> Message: ${responseText}</p>
     <button class="go-back" onClick="window.location.reload();">Go Back</button>
   `;
