@@ -39,7 +39,7 @@ const validateFields = ({
   if (lastName.value === "") {
     validate.showError("#last-item", "Enter a last name");
     messages.push("error");
-  } else if (!/^[a-zA-Z]*$/g.test(firstName.value)) {
+  } else if (!/^[a-zA-Z]*$/g.test(lastName.value)) {
     validate.showError("#last-item", "Names can only contain letters");
     messages.push("error");
   }
@@ -66,7 +66,7 @@ const validateFields = ({
     validate.showError("#zipcode-item", "Enter a zipcode");
     messages.push("error");
   } else if (!/^[1-9]*$/g.test(zipCode.value)) {
-    showError("#zipcode-item", "Zipcode can only contain numbers");
+    validate.showError("#zipcode-item", "Zipcode can only contain numbers");
     messages.push("error");
   }
   // Invoice Number
@@ -144,13 +144,21 @@ const displayResult = (data) => {
   button.classList = "hide";
 
   if (resultCode === "Error") {
-    const errorText = data.transactionResponse.errors[0].errorText;
-    msgContainer.innerHTML = `
-    <p class="py-bottom"> Transaction Result: ${resultCode}</p>
-    <p class="py-bottom"> Message: ${responseText}</p>
-    <p class="py-bottom"> Message: ${errorText}</p>
-    <button class="go-back" onClick="window.location.reload();">Go Back</button>
-  `;
+    if (!data.transactionResponse) {
+      msgContainer.innerHTML = `
+      <p class="py-bottom"> Transaction Result: ${resultCode}</p>
+      <p class="py-bottom"> Message: ${responseText}</p>
+      <button class="go-back" onClick="window.location.reload();">Go Back</button>
+    `;
+    } else {
+      const errorText = data.transactionResponse.errors[0].errorText;
+      msgContainer.innerHTML = `
+      <p class="py-bottom"> Transaction Result: ${resultCode}</p>
+      <p class="py-bottom"> Message: ${responseText}</p>
+      <p class="py-bottom"> Message: ${errorText}</p>
+      <button class="go-back" onClick="window.location.reload();">Go Back</button>
+    `;
+    }
   } else {
     msgContainer.innerHTML = `
     <p class="py-bottom"> Transaction Result: ${resultCode}</p>
@@ -158,8 +166,6 @@ const displayResult = (data) => {
     <button class="go-back" onClick="window.location.reload();">Go Back</button>
   `;
   }
-
-  console.log(data);
 };
 
 const runTrans = ({
