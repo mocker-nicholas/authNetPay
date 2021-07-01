@@ -180,7 +180,7 @@ select:active {
   margin-top: 1.25rem;
   width: calc(100% - 2rem);
   max-width: 930px;
-  transition: all 300ms ease-in-out;
+  transition: all 200ms ease-in-out;
   letter-spacing: 2px;
 }
 
@@ -192,7 +192,7 @@ select:active {
 }
 
 .submit:active {
-  transform: scale(0.98);
+  transform: scale(0.94);
 }
 
 /* Error */
