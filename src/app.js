@@ -63,10 +63,10 @@ const validateFields = ({
   }
   // Zip
   if (zipCode.value === "") {
-    validate.showError("#zipcode-item", "Enter a zipcode");
+    validate.showError("#zipcode-item", "Enter a zip code");
     messages.push("error");
-  } else if (!/^[1-9]*$/g.test(zipCode.value)) {
-    validate.showError("#zipcode-item", "Zipcode can only contain numbers");
+  } else if (!/^[0-9]*$/g.test(zipCode.value)) {
+    validate.showError("#zipcode-item", "Zip code can only contain numbers");
     messages.push("error");
   }
   // Invoice Number
