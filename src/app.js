@@ -12,8 +12,6 @@ button.addEventListener("click", (e) => {
 });
 
 // Display amount value as dollar amount to ui user
-const amountDisplayed = document.querySelector("#amount");
-
 function convert(amount) {
   return Number.parseFloat(amount).toFixed(2);
 }
@@ -21,6 +19,22 @@ function convert(amount) {
 amount.addEventListener("change", (e) => {
   const dollarVal = convert(e.target.value);
   e.target.value = dollarVal;
+});
+
+// Display exp as "xx/xx"
+function expDateFormat(newDate) {
+  const dateArr = Array.from(newDate);
+  dateArr.splice(2, 0, "/");
+
+  const dateString = dateArr.join("");
+
+  return dateString;
+}
+
+expDate.addEventListener("change", (e) => {
+  if (e.target.value.indexOf("/") === -1) {
+    e.target.value = expDateFormat(e.target.value.toString());
+  }
 });
 
 // Check Field Values for the user
