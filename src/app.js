@@ -11,6 +11,18 @@ button.addEventListener("click", (e) => {
   submissionCheck(messages);
 });
 
+// Display amount value as dollar amount to ui user
+const amountDisplayed = document.querySelector("#amount");
+
+function convert(amount) {
+  return Number.parseFloat(amount).toFixed(2);
+}
+
+amount.addEventListener("change", (e) => {
+  const dollarVal = convert(e.target.value);
+  e.target.value = dollarVal;
+});
+
 // Check Field Values for the user
 let messages = [];
 // Add an error item to an array for every error present
