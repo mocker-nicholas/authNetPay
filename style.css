@@ -48,30 +48,32 @@ body {
   margin: 1rem auto;
   padding: 1rem;
   width: 90%;
+  height: 90vh;
   max-width: 1100px;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .intro-div {
   letter-spacing: 3px;
   text-align: center;
   padding-top: 10px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 /* Billing Info */
 .billing {
   background-color: #e6e6e6;
-  border-radius: 1rem;
+  border-radius: 8px;
   max-width: 900px;
   margin: 0 auto;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .billing label {
@@ -82,7 +84,7 @@ body {
   width: 100%;
   height: 1.5rem;
   font-size: 1rem;
-  border-radius: 8px;
+  border-radius: 4px;
   border: 1px solid #14213d80;
   padding-left: 5px;
 }
@@ -91,7 +93,7 @@ body {
   width: 100%;
   height: 1.8rem;
   font-size: 1rem;
-  border-radius: 8px;
+  border-radius: 4px;
   border: 1px solid #14213d80;
 }
 
@@ -118,7 +120,7 @@ select:active {
 /* Payment Info */
 .payment {
   background-color: var(--secondary-color);
-  border-radius: 1rem;
+  border-radius: 8px;
   max-width: 900px;
   margin: 0.5rem auto;
   padding: 1rem;
@@ -131,7 +133,7 @@ select:active {
   width: 100%;
   height: 1.5rem;
   font-size: 1rem;
-  border-radius: 8px;
+  border-radius: 4px;
   border: 1px solid #14213d80;
   padding-left: 5px;
 }
@@ -148,12 +150,12 @@ select:active {
   font-size: 1rem;
   color: var(--teriary-color);
   cursor: pointer;
-  border-radius: 1rem;
+  border-radius: 8px;
   align-self: flex-end;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1.25rem;
-  width: calc(100% - 2rem);
+  width: calc(100% - 4rem);
   max-width: 930px;
   transition: all 200ms ease-in-out;
   letter-spacing: 2px;
@@ -222,6 +224,7 @@ select:active {
 @media (max-width: 850px) {
   .outer-div {
     padding: 0 0.5rem;
+    height: fit-content;
   }
 
   .flex-group.odd {
