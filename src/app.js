@@ -32,13 +32,23 @@ function expDateFormat(newDate) {
 }
 
 expDate.addEventListener("change", (e) => {
-  if (e.target.value.indexOf("/") === -1) {
+  if (e.target.value.indexOf("-") !== -1) {
+    validate.showError("#expDate-item", "Please use MM/YY format");
+    messages.push("error");
+  } else if (e.target.value === "") {
+    return;
+  } else if (e.target.value.indexOf("/") === -1) {
     e.target.value = expDateFormat(e.target.value.toString());
+  }
+
+  if (e.target.value.indexOf("/") === 2) {
+    clearError();
   }
 });
 
 // Check Field Values for the user
 let messages = [];
+
 // Add an error item to an array for every error present
 const validateFields = ({
   firstName,
