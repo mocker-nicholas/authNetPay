@@ -5,6 +5,7 @@ import validate from "./validate.js";
 const button = document.querySelector(".submit");
 const backButton = document.querySelector(".go-back");
 
+// Check all fields and then submit the transaction
 button.addEventListener("click", (e) => {
   clearError();
   validateFields(transVariables);
@@ -21,7 +22,7 @@ amount.addEventListener("change", (e) => {
   e.target.value = dollarVal;
 });
 
-// Display exp as "xx/xx"
+// Display exp as "xx/xx" to a ui user
 function expDateFormat(newDate) {
   const dateArr = Array.from(newDate);
   dateArr.splice(2, 0, "/");
@@ -46,7 +47,20 @@ expDate.addEventListener("change", (e) => {
   }
 });
 
-// Check Field Values for the user
+// Check to see if fields are required on focus out
+const outerDiv = document.querySelector(".outer-div");
+
+outerDiv.addEventListener("focusout", (e) => {
+  if (e.target.classList.contains("req")) {
+    if (e.target.value === "") {
+      e.target.style.borderColor = "red";
+    } else {
+      e.target.style.borderColor = "#14213d80";
+    }
+  }
+});
+
+// Messages array (checked before transaction is submitted)
 let messages = [];
 
 // Add an error item to an array for every error present
