@@ -53,6 +53,7 @@ const outerDiv = document.querySelector(".outer-div");
 outerDiv.addEventListener("focusout", (e) => {
   if (e.target.classList.contains("req")) {
     if (e.target.value === "") {
+      pm;
       e.target.style.borderColor = "red";
       e.target.classList.add("errorPlaceholder");
       e.target.setAttribute("placeholder", "*required");
