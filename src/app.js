@@ -54,8 +54,11 @@ outerDiv.addEventListener("focusout", (e) => {
   if (e.target.classList.contains("req")) {
     if (e.target.value === "") {
       e.target.style.borderColor = "red";
+      e.target.classList.add("errorPlaceholder");
+      e.target.setAttribute("placeholder", "*required");
     } else {
-      e.target.style.borderColor = "#14213d80";
+      e.target.style.borderColor = "rgb(50, 205, 50)";
+      e.target.classList.remove("errorPlaceholder");
     }
   }
 });

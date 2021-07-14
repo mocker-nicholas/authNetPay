@@ -224,6 +224,11 @@ select:active {
   font-size: 0.85rem;
 }
 
+.errorPlaceholder::placeholder {
+  font-size: 0.75rem;
+  color: rgba(255, 52, 92, 0.8);
+}
+
 /* Response */
 @media (max-width: 850px) {
   .outer-div {
