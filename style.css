@@ -218,7 +218,7 @@ select:active {
   transform: scale(0.9);
 }
 
-/* Error */
+/* Error and req */
 .error {
   color: var(--error-color);
   font-size: 0.85rem;

@@ -54,8 +54,12 @@ outerDiv.addEventListener("focusout", (e) => {
   if (e.target.classList.contains("req")) {
     if (e.target.value === "") {
       e.target.style.borderColor = "red";
+      const errEl = document.createElement("p");
+      errEl.innerHTML = "<p class='error'>*required<p>";
+      e.target.parentNode.appendChild(errEl);
     } else {
       e.target.style.borderColor = "#14213d80";
+      e.target.parentNode.lastChild.remove();
     }
   }
 });
