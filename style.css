@@ -63,8 +63,8 @@ body {
   letter-spacing: 3px;
   text-align: center;
   margin-bottom: 1.5rem;
+  margin-top: -20px;
   line-height: 1.4;
-  padding-top: 10px;
 }
 
 /* Billing Info */
@@ -234,6 +234,10 @@ select:active {
   .outer-div {
     padding: 0 0.5rem;
     height: fit-content;
+  }
+
+  .intro-div {
+    margin-top: 0px;
   }
 
   .intro-div p {

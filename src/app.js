@@ -47,13 +47,19 @@ expDate.addEventListener("change", (e) => {
   }
 });
 
+// Trim spaces from credit card field
+transVariables.cardNumber.addEventListener('blur', (e) => {
+  if(/\s/.test(e.target.value)){
+    e.target.value = e.target.value.replace(/ /g, "");
+  }
+})
+
 // Check to see if fields are required on focus out
 const outerDiv = document.querySelector(".outer-div");
 
 outerDiv.addEventListener("focusout", (e) => {
   if (e.target.classList.contains("req")) {
     if (e.target.value === "") {
-      pm;
       e.target.style.borderColor = "red";
       e.target.classList.add("errorPlaceholder");
       e.target.setAttribute("placeholder", "*required");
